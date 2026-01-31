@@ -32,8 +32,8 @@ and other IR forms side by side.
 ## Quick Start
 
 ```sh
-git clone https://github.com/user/irexplorer.git
-cd irexplorer
+git clone https://github.com/volsa/rust-irexplorer.git
+cd rust-irexplorer
 make run
 ```
 
@@ -48,22 +48,6 @@ This builds the server and opens `http://127.0.0.1:3000` in your browser.
 2. Click **Compile** (or press **Ctrl+Enter**)
 3. Select an IR type from the toolbar buttons to view its output
 4. Hover over IR lines to highlight the corresponding source lines
-
-## Make Targets
-
-| Command | Description |
-|---------|-------------|
-| `make build` | Build (debug) |
-| `make release` | Build (optimized release) |
-| `make run` | Start dev server and open browser |
-| `make run-release` | Start release server and open browser |
-| `make check` | Type-check without producing a binary |
-| `make fmt` | Format Rust source files |
-| `make fmt-check` | Check formatting (CI-friendly, no changes) |
-| `make clippy` | Run clippy lints (warnings as errors) |
-| `make test` | Run all tests |
-| `make clean` | Remove build artifacts |
-| `make ci` | Run fmt-check + clippy + test |
 
 ## Project Structure
 
