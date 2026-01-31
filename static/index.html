@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IR Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link id="hljs-theme" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script>
+</head>
+
+<body>
+    <div id="drag-overlay"></div>
+    <div id="app">
+        <div id="toolbar">
+            <span class="title">IR Explorer</span>
+            <select id="example">
+                <option value="">Examples...</option>
+                <option value="hello">Hello World</option>
+                <option value="desugar">Desugaring (for, ?, if let)</option>
+                <option value="moves">Moves &amp; Drops</option>
+                <option value="borrowing">Borrowing &amp; Lifetimes</option>
+                <option value="matching">Pattern Matching</option>
+                <option value="closures">Closures &amp; Captures</option>
+            </select>
+            <button id="compile-btn">Compile</button>
+            <div id="ir-buttons">
+                <button class="ir-btn" data-ir="ast-tree">AST Tree</button>
+                <button class="ir-btn" data-ir="hir-tree">HIR Tree</button>
+                <button class="ir-btn" data-ir="thir-tree">THIR Tree</button>
+                <button class="ir-btn" data-ir="expanded">(AST) Expanded</button>
+                <button class="ir-btn active" data-ir="hir">HIR</button>
+                <button class="ir-btn" data-ir="hir,typed">HIR Typed</button>
+                <!-- <button class="ir-btn" data-ir="thir-flat">THIR Flat</button> -->
+                <button class="ir-btn" data-ir="mir">MIR</button>
+                <button class="ir-btn" data-ir="stable-mir">Stable MIR</button>
+            </div>
+            <span class="hint">Ctrl+Enter to compile</span>
+            <button id="theme-toggle" title="Toggle light/dark theme">&#9790;</button>
+        </div>
+        <div id="main-row">
+            <div id="editor-pane">
+                <div id="editor"></div>
+            </div>
+            <div id="v-handle" class="handle handle-v"></div>
+            <div id="ir-pane">
+                <div id="ir-lines"></div>
+                <pre><code id="ir-output" class="language-rust">IR output will appear here...</code></pre>
+            </div>
+        </div>
+        <div id="h-handle" class="handle handle-h"></div>
+        <div id="messages-pane">
+            <pre id="messages">Compilation messages will appear here...</pre>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
